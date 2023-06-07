@@ -21,6 +21,8 @@ clock = pygame.time.Clock()
 #4 carregar recursos: imagens, sons, etc
 ballImage = pygame.image.load('images/ball.png')
 bounceSound = pygame.mixer.Sound('sounds/boing.wav')
+pygame.mixer.music.load('sounds/background.mp3')
+pygame.mixer.music.play(-1, 0.0)# o primeiro parametro é o numero de vezes que musica deve repetir (-1 = infinito), o segundo é em que parte a musica deve começar. 
 
 #5 iniciando variaveis 
 ballRect = ballImage.get_rect()
@@ -48,7 +50,7 @@ while True:
 
     if (ballRect.left < 0) or (ballRect.right >= WINDOW_WIDTH):
         xSpeed = -xSpeed #reverse the x direction
-        bounceSound.play()
+        bounceSound.play() # play sound
 
     if (ballRect.top < 0) or (ballRect.bottom >=WINDOW_HEIGHT):
         ySpeed = -ySpeed
